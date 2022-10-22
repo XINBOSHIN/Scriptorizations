@@ -1,18 +1,17 @@
 ==============
-Marrow Package
+Xinboshin Package
 ==============
 
-    © 2014 Alice Bevan-McGregor and contributors.
 
 ..
 
-    https://github.com/marrow/package
+    https://github.com/xinboshin/package
 
 ..
 
     |latestversion| |downloads| |masterstatus| |mastercover| |issuecount|
 
-1. What is Marrow Package?
+1. What is Xinboshin Package?
 ==========================
 
 This package is a combination of utilities for handling object lookup, resolving object names, and managing simple to
@@ -26,15 +25,15 @@ for plugin discovery.)
 2. Installation
 ===============
 
-Installing ``marrow.package`` is easy, just execute the following in a terminal::
+Installing ``xinboshin.package`` is easy, just execute the following in a terminal::
 
-    pip install marrow.package
+    pip install xinboshin.package
 
 **Note:** We *strongly* recommend always using a container, virtualization, or sandboxing environment of some kind when
 developing using Python; installing things system-wide is yucky (for a variety of reasons) nine times out of ten.  We prefer light-weight `virtualenv <https://virtualenv.pypa.io/en/latest/virtualenv.html>`_, others prefer solutions as robust as `Vagrant <http://www.vagrantup.com>`_.
 
-If you add ``marrow.package`` to the ``install_requires`` argument of the call to ``setup()`` in your applicaiton's
-``setup.py`` file, Marrow Package will be automatically installed and made available when your own application or
+If you add ``xinboshin.package`` to the ``install_requires`` argument of the call to ``setup()`` in your applicaiton's
+``setup.py`` file, Xinboshin Package will be automatically installed and made available when your own application or
 library is installed.  We recommend using "less than" version numbers to ensure there are no unintentional
 side-effects when updating.  Use ``marrow.package<1.1`` to get all bugfixes for the current release, and
 ``marrow.package<2.0`` to get bugfixes and feature updates while ensuring that large breaking changes are not installed.
@@ -46,14 +45,14 @@ side-effects when updating.  Use ``marrow.package<1.1`` to get all bugfixes for 
     |developstatus| |developcover|
 
 Development takes place on `GitHub <https://github.com/>`_ in the
-`marrow.package <https://github.com/marrow/package/>`_ project.  Issue tracking, documentation, and downloads
+`marrow.package <https://github.com/xinboshin/package/>`_ project.  Issue tracking, documentation, and downloads
 are provided there.
 
 Installing the current development version requires `Git <http://git-scm.com/>`_, a distributed source code management
 system.  If you have Git you can run the following to download and *link* the development version into your Python
 runtime::
 
-    git clone https://github.com/marrow/package.git
+    git clone https://github.com/xinboshin/package.git
     (cd package; python setup.py develop)
 
 You can then upgrade to the latest version at any time::
@@ -74,7 +73,7 @@ useful shortcut is provided, ``__qualname__`` which speeds up this lookup.
 
 For example, let's define a class and get a reference to it::
 
-    from marrow.package.canonical import name
+    from xinboshin.package.canonical import name
     
     class Example(object):
         pass
@@ -103,7 +102,7 @@ You can, depending on platform, retrieve a reference to any of the following typ
 
 Two utilities are provided which allow you resolve string path references to objects.  The first is quite simple::
 
-    from marrow.package.loader import traverse
+    from xinboshin.package.loader import traverse
     
     assert traverse({'foo': {'bar': 27}}, 'foo.bar') == 27
 
@@ -147,7 +146,7 @@ Providing a namespace does not prevent explicit object lookup (dot-colon notatio
 
 An attribute-access dictionary is provided that acts as an import cache::
 
-    from marrow.package.cache import PackageCache
+    from xinboshin.package.cache import PackageCache
     from pip import main
     
     cache = PackageCache('console_scripts')
@@ -195,59 +194,11 @@ element matching the following, all optional:
 Version 1.0
 -----------
 
-* **Initial release.**  Combination of utilities from other Marrow projects.
+* **Initial release.**  Combination of utilities from other Xinboshin projects.
 
 
 7. License
 ==========
 
-Marrow Pacakge has been released under the MIT Open Source license.
+Xinboshin Pacakge has been released under the MIT Open Source license.
 
-7.1. The MIT License
---------------------
-
-Copyright © 2014 Alice Bevan-McGregor and contributors.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
-documentation files (the “Software”), to deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit
-persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
-Software.
-
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
-WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-.. |masterstatus| image:: http://img.shields.io/travis/marrow/package/master.svg?style=flat
-    :target: https://travis-ci.org/marrow/package
-    :alt: Release Build Status
-
-.. |developstatus| image:: http://img.shields.io/travis/marrow/package/develop.svg?style=flat
-    :target: https://travis-ci.org/marrow/package
-    :alt: Development Build Status
-
-.. |latestversion| image:: http://img.shields.io/pypi/v/marrow.package.svg?style=flat
-    :target: https://pypi.python.org/pypi/package
-    :alt: Latest Version
-
-.. |downloads| image:: http://img.shields.io/pypi/dw/marrow.package.svg?style=flat
-    :target: https://pypi.python.org/pypi/package
-    :alt: Downloads per Week
-
-.. |mastercover| image:: http://img.shields.io/coveralls/marrow/package/master.svg?style=flat
-    :target: https://travis-ci.org/marrow/package
-    :alt: Release Test Coverage
-
-.. |developcover| image:: http://img.shields.io/coveralls/marrow/package/develop.svg?style=flat
-    :target: https://travis-ci.org/marrow/package
-    :alt: Development Test Coverage
-
-.. |issuecount| image:: http://img.shields.io/github/issues/marrow/package.svg?style=flat
-    :target: https://github.com/marrow/package/issues
-    :alt: Github Issues
-
-.. |cake| image:: http://img.shields.io/badge/cake-lie-1b87fb.svg?style=flat
