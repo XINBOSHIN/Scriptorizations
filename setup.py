@@ -20,7 +20,7 @@ elif sys.version_info > (3, 0) and sys.version_info < (3, 2):
 	raise SystemExit("CPython 3.3 or Pypy 3 (3.2) or later is required.")
 
 version = description = url = author = author_email = ""  # Silence linter warnings.
-exec(open(os.path.join("marrow", "script", "release.py")).read())  # Actually populate those values.
+exec(open(os.path.join("xinboshin", "script", "release.py")).read())  # Actually populate those values.
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -70,7 +70,7 @@ setup(
 	include_package_data = True,
 	package_data = {'': ['README.rst', 'LICENSE.txt']},
 	namespace_packages = [
-			'marrow',  # primary namespace
+			'xinboshin',  # primary namespace
 		],
 	zip_safe = True,
 	
@@ -81,7 +81,7 @@ setup(
 			'pytest-runner',
 		] if {'pytest', 'test', 'ptr'}.intersection(sys.argv) else [],
 	install_requires = [
-			'marrow.schema<2.0',  # dynamic execution and plugin management
+			'xinboshin.schema<2.0',  # dynamic execution and plugin management
 			'funcsigs; python_version < "3.3"',  # Omni-port of PEP 362 (from Python 3.3's inspect module).
 			'pathlib2; python_version < "3.4"',  # Path manipulation utility lib; builtin in 3.4 and 3.5.
 		],
