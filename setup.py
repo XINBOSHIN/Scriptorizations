@@ -38,7 +38,7 @@ setup(
 	description = description,
 	long_description = codecs.open(os.path.join(here, 'README.rst'), 'r', 'utf8').read(),
 	url = url,
-	download_url = 'https://github.com/marrow/marrow.script/releases',
+	download_url = 'https://github.com/xinboshin/xinboshin.script/releases',
 	author = author.name,
 	author_email = author.email,
 	license = 'MIT',
