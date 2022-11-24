@@ -61,14 +61,14 @@ Xinboshin Package
 `Документация GitHub <http://help.github.com />`_.
 
 
-3. Getting Object References
+3. Получение ссылок на объекты
 ============================
 
-Object references describe the module and attribute path needed to resolve the object.  For example, ``foo:bar`` is a
-reference that describes importing "foo" prior to retrieving an object named "bar" from the module.  On Python 3.3+ a
-useful shortcut is provided, ``__qualname__`` which speeds up this lookup.
+Ссылки на объекты описывают путь к модулю и атрибуту, необходимый для разрешения объекта. Например, `foo:bar` - это
+ссылка, которая описывает импорт "foo" перед извлечением объекта с именем "bar" из модуля. В Python 3.3+ или JAVA
+предусмотрен полезный ярлык `__qualname__`, который ускоряет этот поиск.
 
-For example, let's define a class and get a reference to it::
+Например, давайте определим класс и получим ссылку на него::
 
     from xinboshin.package.canonical import name
     
@@ -77,9 +77,9 @@ For example, let's define a class and get a reference to it::
     
     asset name(Example) == '__main__:Example'
 
-You can, depending on platform, retrieve a reference to any of the following types of objects:
+Вы можете, в зависимости от платформы, получить ссылку на любой из следующих типов объектов:
 
-* Module level:
+* Модульный уровень:
 	* class
 	* class instance
 	* class method
@@ -89,41 +89,40 @@ You can, depending on platform, retrieve a reference to any of the following typ
 	* instance method
 	* instance staticmethod
 	* shallow nested class
-* On Python 3.3+:
+* Для Python 3.3+:
 	* closure
 	* deeply nested class or method
 
 
-4. Resolving Object References
+4. Разрешение ссылок на объекты
 ==============================
 
-Two utilities are provided which allow you resolve string path references to objects.  The first is quite simple::
+Предоставляются две утилиты, которые позволяют вам разрешать ссылки на строковые пути к объектам. Первый довольно прост:
 
-    from xinboshin.package.loader import traverse
-    
-    assert traverse({'foo': {'bar': 27}}, 'foo.bar') == 27
+ из xinboshin.package.loader импортируйте траверс
+ 
+ assert traverse({'foo': {'bar': 27}}, 'foo.bar') == 27
 
-This will search the dictionary described for a "foo" element, then "bar" element.
+Это приведет к поиску в описанном словаре элемента "foo", затем элемента "bar".
 
-The ``traverse`` function takes some additional optional arguments.  If ``executable`` is ``True`` any executable
-function encountered will be executed without arguments. Traversal will continue on the result of that call.  You can
-change the separator as desired, i.e. to a '/' using the ``separator`` argument.
+Функция `traverse` принимает некоторые дополнительные необязательные аргументы. Если `исполняемый файл` имеет значение `True`, любая
+встречающаяся исполняемая функция будет выполнена без аргументов. Обход будет продолжен по результату этого вызова. Вы можете
+изменить разделитель по желанию, т.е. на '/', используя аргумент `separator`.
 
-By default attributes (but not array elements) prefixed with an underscore are taboo.  They will not resolve, raising
-a LookupError.  You can allow these by setting ``protect`` to ``False``.
+По умолчанию атрибуты (но не элементы массива) с префиксом подчеркивания являются табуированными. Они не разрешатся, поднимая
+взгляд сверхъестественный. Вы можете разрешить это, установив для параметра `защита` значение `False`.
 
-Certain allowances are made: if a 'path segment' is numerical, it's treated as an array index. If attribute lookup
-fails, it will re-try on that object using array notation and continue from there.  This makes lookup very flexible.
+Сделаны определенные допущения: если "сегмент пути" является числовым, он обрабатывается как индекс массива. Если поиск атрибута завершится
+неудачей, он повторит попытку для этого объекта, используя обозначение массива и co
 
 
-4.1. Resolving Import References
+4.1. Разрешение ссылок на импорт
 --------------------------------
 
-The more complete API for name resolution uses the ``load`` funciton, which takes the same optional keyword arguments
-as ``traverse``.  Additionally, this function accepts an optional ``namespace`` to search for plugins within.  For
-example::
+Более полный API для разрешения имен использует функцию `load`, которая принимает те же необязательные аргументы ключевого
+слова, что и "traverse`. Кроме того, эта функция принимает необязательное `пространство имен` для поиска плагинов внутри. Например:
 
-    from marrow.package.loader import load
+    from xinboshin.package.loader import load
     from pip import main
     
     # Load class Foo from example.objects
@@ -135,13 +134,13 @@ example::
     # Load the "pip" command-line interface.
     assert load('pip', 'console_scripts') is main
 
-Providing a namespace does not prevent explicit object lookup (dot-colon notation) from working.
+Предоставление пространства имен не препятствует работе явного поиска объектов (обозначение точкой и двоеточием).
 
 
-4.2. Caching Import References
+4.2. Кэширование ссылок на импорт
 ------------------------------
 
-An attribute-access dictionary is provided that acts as an import cache::
+Предоставляется словарь доступа к атрибутам, который действует как кэш импорта::
 
     from xinboshin.package.cache import PackageCache
     from pip import main
@@ -154,48 +153,48 @@ An attribute-access dictionary is provided that acts as an import cache::
     assert 'pip' in cache
 
 
-5. Managing Plugins
+5. Управление плагинами
 ===================
 
-This package provides two main methods of dealing with plugins and extensions, the first is simple, the second
-provides full dependency graphing of the extensions.
+Этот пакет предоставляет два основных метода работы с плагинами и расширениями, первый прост, второй
+обеспечивает полное отображение зависимостей расширений.
 
-5.1. Plugin Manager
+5.1. Плагин-менеджер
 -------------------
 
-The ``PluginManager`` class takes two arguments: the first is the entry point ``namespace`` to search, the second is
-an optional iterable of folders to add to the Python search path for installed packages, allowing your application to
-have a dedicated plugins folder.
+Класс `PluginManager` принимает два аргумента: первый - это точка входа `пространство имен` для поиска, второй -
+необязательный список папок для добавления в путь поиска установленных пакетов на Python, позволяющий вашему приложению
+иметь выделенную папку плагинов.
 
-It provides a ``register`` method which take a name and the object to use as the plugin and registers it internally,
-supporting both attribute and array-like notation for retrieval, as well as iteration of plugins (includes all entry
-point plugins found and any custom registered ones).
+Он предоставляет метод `register`, который принимает имя и объект для использования в качестве плагина и регистрирует его внутри,
+поддерживая как атрибутивную, так и массивоподобную нотацию для извлечения, а также итерацию плагинов (включает все
+найденные плагины точки входа и любые пользовательские зарегистрированные).
 
-5.2. Extension Manager
+5.2. Менеджер расширения
 ----------------------
 
-At a higher level is a ``PluginManager`` subclass called ``ExtensionManager`` which additoinally exposes a ``sort``
-method capable of resolving dependency order for extensions which follow a simple protocol: have an attribute or array
-element matching the following, all optional:
+На более высоком уровне находится подкласс `PluginManager`, называемый `ExtensionManager`, который дополнительно предоставляет `сортировку`
+метод, способный разрешить порядок зависимостей для расширений, которые следуют простому протоколу: иметь атрибут или
+элемент массива, соответствующий следующему, все необязательные:
 
-* ``provides`` — declare tags describing the features offered by the plugin
-* ``needs`` — delcare the tags that must be present for this extension to function
-* ``uses`` — declare the tags that must be evaluated prior to this extension, but aren't hard requirements
-* ``first`` — declare that this extension is a dependency of all other non-first extensions
-* ``last`` — declare that this extension depends on all other non-last extensions
+* `предоставляет` — объявляет теги, описывающие функции, предлагаемые плагином.
+* `потребности` — удалите теги, которые должны присутствовать для функционирования этого расширения.
+* `использует` — объявляет теги, которые должны быть оценены до этого расширения, но не являются жесткими требованиями
+* `first` — объявить, что это расширение является зависимостью от всех других расширений, отличных от first.
+* `последнее` — объявить, что это расширение зависит от всех других расширений, не являющихся последними.
 
 
-6. Version History
+6. История версий
 ==================
 
 Version 1.0
 -----------
 
-* **Initial release.**  Combination of utilities from other Xinboshin projects.
+* ** Начальный выпуск.** Комбинация утилит из других проектов Xinboshin.
 
 
-7. License
+7. Лицензия
 ==========
 
-Xinboshin Pacakge has been released under the MIT Open Source license.
+Xinboshin Pacakge был выпущен под лицензией MIT с открытым исходным кодом.
 
