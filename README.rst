@@ -21,46 +21,44 @@ Xinboshin Package
 для обнаружения плагина Династии.)
 
 
-2. Installation
+2. Установка
 ===============
 
-Installing ``xinboshin.package`` is easy, just execute the following in a terminal::
+Установка `xinboshin.package` проста, просто выполните следующее в терминале::
 
     pip install xinboshin.package
 
-**Note:** We *strongly* recommend always using a container, virtualization, or sandboxing environment of some kind when
-developing using Python; installing things system-wide is yucky (for a variety of reasons) nine times out of ten.  We prefer light-weight `virtualenv <https://virtualenv.pypa.io/en/latest/virtualenv.html>`_, others prefer solutions as robust as `Vagrant <http://www.vagrantup.com>`_.
+** Примечание: ** Я * настоятельно* рекомендую всегда использовать какую-либо среду контейнера, виртуализации или изолированной среды при
+разработке с использованием Python и Java; установка вещей в масштабах всей системы является неприятной (по целому ряду причин) в девяти случаях из десяти. Мы предпочитаем легкий "virtualenv <https://virtualenv.pypa.io/en/latest/virtualenv.html >`_, другие предпочитают такие надежные решения, как `Vagrant <http://www.vagrantup.com >`_.
 
-If you add ``xinboshin.package`` to the ``install_requires`` argument of the call to ``setup()`` in your applicaiton's
-``setup.py`` file, Xinboshin Package will be automatically installed and made available when your own application or
-library is installed.  We recommend using "less than" version numbers to ensure there are no unintentional
-side-effects when updating.  Use ``marrow.package<1.1`` to get all bugfixes for the current release, and
-``marrow.package<2.0`` to get bugfixes and feature updates while ensuring that large breaking changes are not installed.
+Если вы добавите `xinboshin.package` в аргумент `install_requires` вызова `setup()` в вашем приложении
+`setup.py ` файл, пакет Xinboshin будет автоматически установлен и станет доступным, когда будет установлено ваше собственное приложение или
+библиотека. Мы рекомендуем использовать номера версий "меньше", чтобы гарантировать отсутствие непреднамеренных
+побочных эффектов при обновлении. Используйте `xinboshin.package<1.1`, чтобы получить все исправления для текущего выпуска, и
+`xinboshin.package<2.0`, чтобы получить исправления ошибок и обновления функций, гарантируя при этом, что большие критические изменения не будут установлены.
 
 
-2.1. Development Version
+2.1. Версия разработки
 ------------------------
 
     |developstatus| |developcover|
 
-Development takes place on `GitHub <https://github.com/>`_ in the
-`marrow.package <https://github.com/xinboshin/package/>`_ project.  Issue tracking, documentation, and downloads
-are provided there.
+Разработка происходит на `GitHub <https://github.com />`_ в
+пакете `xinboshin.package <https://github.com/xinboshin/package />`_ проект. Там представлены отслеживание проблем, документация и загрузки
+.
 
-Installing the current development version requires `Git <http://git-scm.com/>`_, a distributed source code management
-system.  If you have Git you can run the following to download and *link* the development version into your Python
-runtime::
-
+Для установки текущей версии разработки требуется `Git <http://git-scm.com />`_, распределенная система управления исходным кодом
+. Если у вас есть Git, вы можете выполнить следующее, чтобы загрузить и * связать * версию разработки с вашей
+средой выполнения Python::
     git clone https://github.com/xinboshin/package.git
     (cd package; python setup.py develop)
 
-You can then upgrade to the latest version at any time::
-
+Затем вы можете в любое время перейти на последнюю версию::
     (cd package; git pull; python setup.py develop)
 
-If you would like to make changes and contribute them back to the project, fork the GitHub project, make your changes,
-and submit a pull request.  This process is beyond the scope of this documentation; for more information see
-`GitHub's documentation <http://help.github.com/>`_.
+Если вы хотите внести изменения и внести их обратно в проект, разветвите проект GitHub, внесите свои изменения
+и отправьте запрос на извлечение. Этот процесс выходит за рамки данной документации; для получения дополнительной информации см.
+`Документация GitHub <http://help.github.com />`_.
 
 
 3. Getting Object References
