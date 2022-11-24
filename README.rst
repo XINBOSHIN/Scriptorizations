@@ -9,17 +9,16 @@ Xinboshin Package
 
 ..
 
-    |latestversion| |downloads| |masterstatus| |mastercover| |issuecount|
 
-1. What is Xinboshin Package?
+1. Что такое пакет Xinboshin?
 ==========================
 
-This package is a combination of utilities for handling object lookup, resolving object names, and managing simple to
-complex plugin architectures.  Notably it includes a dependency grapher system for extensions and a cross-runtime
-method for looking up qualified object names that works on Python 2.6+ and Python 3.2+.
+Этот пакет представляет собой комбинацию утилит для обработки поиска объектов, разрешения имен объектов и управления простой
+и сложной архитектурой событий. Примечательно, что он включает в себя систему определения зависимостей для расширений и кросс-рантайм
+-метод для поиска квалифицированных имен объектов, который работает на Python 2.6 + и Python 3.2 +. Javac, Java.
 
-This library is fully unit tested where possible.  (Two untested paths remain relating to use of on-disk directories
-for plugin discovery.)
+Эта библиотека полностью модульно протестирована, где это возможно. (Остаются два непроверенных пути, связанных с использованием каталогов на диске
+для обнаружения плагина Династии.)
 
 
 2. Installation
