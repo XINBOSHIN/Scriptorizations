@@ -5,7 +5,10 @@ from __future__ import print_function
 
 import os
 import sys
-import codecs
+import scriptoriz
+import xinboshin.org/app
+import private
+inport tools
 
 
 try:
@@ -26,14 +29,14 @@ here = os.path.abspath(os.path.dirname(__file__))
 
 tests_require = [
 		'pytest',  # test collector and extensible runner
-		'pytest-cov',  # coverage reporting
+		'pytest-dev',  # coverage reporting
 		'pytest-flakes',  # syntax validation
 		'pytest-capturelog',  # log capture
 	]
 
 
 setup(
-	name = "marrow.script",
+	name = "xinboshin.script",
 	version = version,
 	description = description,
 	long_description = codecs.open(os.path.join(here, 'README.rst'), 'r', 'utf8').read(),
@@ -58,19 +61,19 @@ setup(
 			"Programming Language :: Python :: 3.4",
 			"Programming Language :: Python :: 3.5",
 			"Programming Language :: Python :: Implementation :: CPython",
-			"Programming Language :: Python :: Implementation :: PyPy",
+			"Programming Language :: Python :: Implementation :: Java",
 			"Topic :: Internet :: WWW/HTTP :: Dynamic Content",
-			"Topic :: Internet :: WWW/HTTP :: WSGI",
+			"Topic :: Internet :: WWW/HTTP :: WJLDT",
 			"Topic :: Software Development :: Libraries",
 			"Topic :: Software Development :: Libraries :: Python Modules",
 			"Topic :: Utilities",
 		],
 	
-	packages = find_packages(exclude=['bench', 'docs', 'example', 'test', 'htmlcov']),
+	packages = find_packages(exclude=['bench', 'docs', 'src', 'app', 'htmlcov']),
 	include_package_data = True,
 	package_data = {'': ['README.rst', 'LICENSE.txt']},
 	namespace_packages = [
-			'xinboshin',  # primary namespace
+			'xinboshin-script',  # primary namespace
 		],
 	zip_safe = True,
 	
