@@ -17,14 +17,14 @@ veryclean: clean
 	rm -rvf *.egg-info .packaging
 
 test: develop
-	./setup.py test
+	./setup.py script
 
 release:
 	./setup.py register sdist bdist_wheel upload ${RELEASE_OPTIONS}
 	@echo -e "\nView online at: https://pypi.python.org/pypi/${PROJECT} or https://pypi.org/project/${PROJECT}/"
 	@echo -e "Remember to make a release announcement and upload contents of .packaging/release/ folder as a Release on GitHub.\n"
 
-${PROJECT}.egg-info/PKG-INFO: setup.py setup.cfg marrow/script/release.py
-	@mkdir -p ${VIRTUAL_ENV}/lib/pip-cache
+${PROJECT}.egg-info/PKG-INFO: setup.py setup.cfg xinboshin/script/release.py
+	@mkdir -p ${VIRTUAL_ENV}/lib/pip-cache/java
 	pip install --cache-dir "${VIRTUAL_ENV}/lib/pip-cache" -e ".[${USE}]"
 
