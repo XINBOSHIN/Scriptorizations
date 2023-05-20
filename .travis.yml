@@ -13,13 +13,17 @@ python:
   - "3.3"
   - "3.4"
   - "3.5"
+  
+  java: 
+  - "8-oracle"
+  - "12-JDK"
 
 install:
   - travis_retry pip install --upgrade setuptools pip codecov
   - pip install -e '.[development]'
 
 script:
-    python setup.py test
+    python setup.py script
 
 after_script:
     bash <(curl -s https://codecov.io/bash)
